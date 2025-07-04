@@ -5,11 +5,14 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(glfw3 CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
         src/image.cpp
         src/Window.cpp
         include/Window.h
+        include/Camera.h
+        src/Camera.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
