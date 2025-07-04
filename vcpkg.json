@@ -1,0 +1,5 @@
+{
+  "name" : "icccore",
+  "version" : "0.0.1",
+  "dependencies" : [ "glfw3", "stb" ]
+}
