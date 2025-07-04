@@ -14,7 +14,8 @@ add_library(${PROJECT_NAME} STATIC
 
 target_include_directories(${PROJECT_NAME}
         PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
         PRIVATE
         ${Stb_INCLUDE_DIR}
 )
@@ -22,5 +23,20 @@ target_include_directories(${PROJECT_NAME}
 target_compile_definitions(${PROJECT_NAME} PRIVATE STB_IMAGE_IMPLEMENTATION)
 
 target_link_libraries(${PROJECT_NAME}
-        PRIVATE glfw
+        PUBLIC glfw
+)
+
+# Export library
+install(TARGETS ICCore EXPORT ICCoreTargets
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin
+)
+
+install(DIRECTORY include/ DESTINATION include)
+
+install(EXPORT ICCoreTargets
+        FILE ICCoreConfig.cmake
+        NAMESPACE ICCore::
+        DESTINATION lib/cmake/ICCore
 )
