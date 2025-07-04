@@ -11,7 +11,6 @@ namespace ICcore {
         ~Window();
 
         bool ShouldClose() const;
-        void ClearColor(float r, float g, float b, float a);
         bool GetKeyDown(int key);
         float GetDeltaTime() { return _deltaTime; }
         GLFWwindow *GetGLFWwindow() { return _window; }

@@ -17,11 +17,6 @@ namespace ICcore {
         return glfwWindowShouldClose(_window);
     }
 
-    void Window::ClearColor(float r, float g, float b, float a) {
-        glClearColor(r, g, b, a);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    }
-
     // @todo: move this into dedicated input manager?
     bool Window::GetKeyDown(const int key) {
         return glfwGetKey(_window, key);
@@ -53,11 +48,10 @@ namespace ICcore {
 
         glfwMakeContextCurrent(_window);
 
-        glViewport(0, 0, _width, _height);
         glfwSetFramebufferSizeCallback(_window, FrameBufferSizeCallback);
     }
 
     void Window::FrameBufferSizeCallback(GLFWwindow* window, int width, int height) {
-        glViewport(0, 0, width, height);
+
     }
 }
