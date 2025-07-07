@@ -8,13 +8,21 @@ namespace ICcore {
     class Window {
     public:
         Window(int width, int height, const std::string &title);
+
         ~Window();
 
+        int Width() const { return _width; }
+        int Height() const { return _height; }
+
         bool ShouldClose() const;
+
         bool GetKeyDown(int key);
+
         float GetDeltaTime() { return _deltaTime; }
         GLFWwindow *GetGLFWwindow() { return _window; }
+
         void ProcessInput();
+
         void SwapBuffers() const;
 
     private:
@@ -25,7 +33,7 @@ namespace ICcore {
 
         GLFWwindow *_window;
 
-        static void FrameBufferSizeCallback(GLFWwindow* window, int width, int height);
+        static void FrameBufferSizeCallback(GLFWwindow *window, int width, int height);
 
         void Init();
     };

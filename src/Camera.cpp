@@ -7,10 +7,17 @@ namespace ICCore {
           _look(look) {
         _right = glm::normalize(glm::cross(_look, _up));
         MoveCamera(position);
+        UpdateProjectionMatrix();
     }
 
     void Camera::MoveCamera(glm::vec3 position) {
         _position = position;
         _view = glm::lookAt(_position, _position + _look, _up);
     }
+
+    void Camera::UpdateProjectionMatrix() {
+        _projection = glm::perspective(_fieldOfView, static_cast<float>(_window.Width()) / _window.Height(), _nearPlane,
+                                       _farPlane);
+    }
+
 }
