@@ -6,11 +6,11 @@ namespace ICCore {
     }
 
     void Mesh::SetIndices(const std::vector<uint32_t> &indices) {
-        _indices = std::make_unique<std::vector<uint32_t> >(indices.size());
+        _indices = std::make_unique<std::vector<uint32_t> >(indices);
     }
 
     void Mesh::SetVertices(const std::vector<Vertex> &vertices) {
-        _vertices = std::make_unique<std::vector<Vertex> >(vertices.size());
+        _vertices = std::make_unique<std::vector<Vertex> >(vertices);
     }
 
 }

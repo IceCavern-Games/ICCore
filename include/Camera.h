@@ -8,11 +8,11 @@
 namespace ICCore {
     class Camera {
     public:
-        glm::mat4 GetViewMatrix() { return _view; }
-        glm::mat4 GetProjectionMatrix() { return _projection; }
+        glm::mat4 &GetViewMatrix() { return _view; }
+        glm::mat4 &GetProjectionMatrix() { return _projection; }
 
         Camera(Window &window, glm::vec3 position, glm::vec3 up = {0.0f, 1.0f, 0.0f},
-               glm::vec3 look = {0.0f, 0.0f, 1.0f});
+               glm::vec3 look = {0.0f, 0.0f, -1.0f});
 
         void MoveCamera(glm::vec3 position);
 
