@@ -19,15 +19,15 @@ namespace ICCore {
 } // namespace IC
 
 // App Log Macros
-#define IC_APP_TRACE(...) ::IC::Log::GetAppLogger()->trace(__VA_ARGS__)
-#define IC_APP_INFO(...) ::IC::Log::GetAppLogger()->info(__VA_ARGS__)
-#define IC_APP_WARN(...) ::IC::Log::GetAppLogger()->warn(__VA_ARGS__)
-#define IC_APP_ERROR(...) ::IC::Log::GetAppLogger()->error(__VA_ARGS__)
-#define IC_APP_FATAL(...) ::IC::Log::GetAppLogger()->fatal(__VA_ARGS__)
+#define IC_APP_TRACE(...) ::ICCore::Logger::GetAppLogger()->trace(__VA_ARGS__)
+#define IC_APP_INFO(...) ::ICCore::Logger::GetAppLogger()->info(__VA_ARGS__)
+#define IC_APP_WARN(...) ::ICCore::Logger::GetAppLogger()->warn(__VA_ARGS__)
+#define IC_APP_ERROR(...) ::ICCore::Logger::GetAppLogger()->error(__VA_ARGS__)
+#define IC_APP_FATAL(...) ::ICCore::Logger::GetAppLogger()->fatal(__VA_ARGS__)
 
 // Core Log Macros
-#define IC_CORE_TRACE(...) ::IC::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define IC_CORE_INFO(...) ::IC::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define IC_CORE_WARN(...) ::IC::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define IC_CORE_ERROR(...) ::IC::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define IC_CORE_FATAL(...) ::IC::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define IC_CORE_TRACE(...) ::ICCore::Logger::GetCoreLogger()->trace(__VA_ARGS__)
+#define IC_CORE_INFO(...) ::ICCore::Logger::GetCoreLogger()->info(__VA_ARGS__)
+#define IC_CORE_WARN(...) ::ICCore::Logger::GetCoreLogger()->warn(__VA_ARGS__)
+#define IC_CORE_ERROR(...) ::ICCore::Logger::GetCoreLogger()->error(__VA_ARGS__)
+#define IC_CORE_FATAL(...) ::ICCore::Logger::GetCoreLogger()->fatal(__VA_ARGS__)
