@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace ICcore {
+namespace ICCore {
     Window::Window(const int width, const int height, const std::string &title) {
         _height = height;
         _width = width;
@@ -11,7 +11,8 @@ namespace ICcore {
         Init();
     }
 
-    Window::~Window() {}
+    Window::~Window() {
+    }
 
     bool Window::ShouldClose() const {
         return glfwWindowShouldClose(_window);
@@ -51,7 +52,7 @@ namespace ICcore {
         glfwSetFramebufferSizeCallback(_window, FrameBufferSizeCallback);
     }
 
-    void Window::FrameBufferSizeCallback(GLFWwindow* window, int width, int height) {
+    void Window::FrameBufferSizeCallback(GLFWwindow *window, int width, int height) {
 
     }
 }
