@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
+find_package(spdlog CONFIG REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
         src/image.cpp
@@ -13,6 +14,8 @@ add_library(${PROJECT_NAME} STATIC
         include/Window.h
         include/Camera.h
         src/Camera.cpp
+        include/Logger.h
+        src/Logger.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -27,6 +30,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE STB_IMAGE_IMPLEMENTATION)
 
 target_link_libraries(${PROJECT_NAME}
         PUBLIC glfw
+        spdlog::spdlog_header_only
 )
 
 # Export library
