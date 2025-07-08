@@ -16,6 +16,10 @@ add_library(${PROJECT_NAME} STATIC
         src/Camera.cpp
         include/Logger.h
         src/Logger.cpp
+        include/Data.h
+        include/Mesh.h
+        src/Mesh.cpp
+        include/Primitives.h
 )
 
 target_include_directories(${PROJECT_NAME}
