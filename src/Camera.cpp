@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 namespace ICCore {
-    Camera::Camera(ICcore::Window &window, glm::vec3 position, glm::vec3 look, glm::vec3 up)
+    Camera::Camera(Window &window, glm::vec3 position, glm::vec3 look, glm::vec3 up)
         : _window(window),
           _up(up),
           _look(look) {
