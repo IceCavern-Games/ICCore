@@ -76,4 +76,38 @@ namespace ICCore {
 
         return mesh;
     }
+
+    inline Mesh Plane(float scale = 1, uint8_t subdivisions = 0) {
+        Mesh mesh;
+        int vertCount = subdivisions * subdivisions + 2;
+
+        std::vector<Vertex> vertices;
+        std::vector<uint32_t> indices;
+        float spacing = scale / (vertCount - 1);
+        for (int y = 0; y < vertCount; y++) {
+            float yPos = spacing * y;
+            for (int x = 0; x < vertCount; x++) {
+                float xPos = spacing * x;
+                int vertNum = y * vertCount + x;
+
+                vertices.push_back({{xPos, 0.0f, yPos}, {0.0f, 1.0f, 0.0f}, {1.0f, 1.0f, 1.0f},
+                                    {static_cast<float>(x) / (vertCount - 1),
+                                     static_cast<float>(y) / (vertCount - 1)}});
+
+                if (x != vertCount - 1 && y != vertCount - 1) {
+                    indices.push_back(vertNum);
+                    indices.push_back(vertNum + 1);
+                    indices.push_back(vertNum + vertCount);
+
+                    indices.push_back(vertNum + 1);
+                    indices.push_back(vertNum + 1 + vertCount);
+                    indices.push_back(vertNum + vertCount);
+                }
+            }
+        }
+
+        mesh.SetVertices(vertices);
+        mesh.SetIndices(indices);
+        return mesh;
+    }
 }
