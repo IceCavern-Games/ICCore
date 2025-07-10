@@ -16,6 +16,8 @@ namespace ICCore {
 
         void MoveCamera(glm::vec3 position);
 
+        void SetAspectRatio(float aspectRatio);
+
     private:
         Window &_window;
 
@@ -28,6 +30,7 @@ namespace ICCore {
         glm::vec3 _look;
 
         float _fieldOfView = glm::radians(45.0f);
+        float _aspectRatio = 16.0f / 9.0f;
         float _nearPlane = 0.01f;
         float _farPlane = 1000.0f;
 

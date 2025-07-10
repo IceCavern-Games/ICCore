@@ -6,6 +6,7 @@ namespace ICCore {
           _up(up),
           _look(look) {
         _right = glm::normalize(glm::cross(_look, _up));
+        _aspectRatio = static_cast<float>(window.Width()) / static_cast<float>(window.Height());
         MoveCamera(position);
         UpdateProjectionMatrix();
     }
@@ -15,8 +16,14 @@ namespace ICCore {
         _view = glm::lookAt(_position, _position + _look, _up);
     }
 
+    void Camera::SetAspectRatio(const float aspectRatio) {
+        _aspectRatio = aspectRatio;
+        UpdateProjectionMatrix();
+    }
+
+
     void Camera::UpdateProjectionMatrix() {
-        _projection = glm::perspective(_fieldOfView, static_cast<float>(_window.Width()) / _window.Height(), _nearPlane,
+        _projection = glm::perspective(_fieldOfView, _aspectRatio, _nearPlane,
                                        _farPlane);
     }
 
