@@ -17,6 +17,7 @@ namespace ICCore {
         bool ShouldClose() const;
 
         bool GetKeyDown(int key);
+        bool GetMouseDown(int button);
 
         float GetDeltaTime() { return _deltaTime; }
         GLFWwindow *GetGLFWwindow() { return _window; }
@@ -37,4 +38,4 @@ namespace ICCore {
 
         void Init();
     };
-}
+} // namespace ICCore

@@ -11,8 +11,7 @@ namespace ICCore {
         Init();
     }
 
-    Window::~Window() {
-    }
+    Window::~Window() {}
 
     bool Window::ShouldClose() const {
         return glfwWindowShouldClose(_window);
@@ -21,6 +20,10 @@ namespace ICCore {
     // @todo: move this into dedicated input manager?
     bool Window::GetKeyDown(const int key) {
         return glfwGetKey(_window, key);
+    }
+
+    bool Window::GetMouseDown(const int button) {
+        return glfwGetMouseButton(_window, button);
     }
 
     void Window::ProcessInput() {
@@ -52,7 +55,5 @@ namespace ICCore {
         glfwSetFramebufferSizeCallback(_window, FrameBufferSizeCallback);
     }
 
-    void Window::FrameBufferSizeCallback(GLFWwindow *window, int width, int height) {
-
-    }
-}
+    void Window::FrameBufferSizeCallback(GLFWwindow *window, int width, int height) {}
+} // namespace ICCore

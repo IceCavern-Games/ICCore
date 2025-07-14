@@ -1,13 +1,16 @@
 #pragma once
 
-#include <glm/vec3.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/vec3.hpp>
 
 #include "Window.h"
 
 namespace ICCore {
     class Camera {
     public:
+        glm::vec3 &GetPosition() { return _position; }
+        glm::vec3 &GetRight() { return _right; }
+        glm::vec3 &GetLook() { return _look; }
         glm::mat4 &GetViewMatrix() { return _view; }
         glm::mat4 &GetProjectionMatrix() { return _projection; }
 
@@ -18,7 +21,7 @@ namespace ICCore {
 
         void SetAspectRatio(float aspectRatio);
 
-    private:
+    protected:
         Window &_window;
 
         glm::mat4 _view;
@@ -36,4 +39,4 @@ namespace ICCore {
 
         void UpdateProjectionMatrix();
     };
-}
+} // namespace ICCore
