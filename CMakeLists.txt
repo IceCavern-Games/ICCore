@@ -26,6 +26,7 @@ add_library(${PROJECT_NAME} STATIC
         include/opengl/OpenGLShader.h
         src/opengl/OpenGLShader.cpp
         src/Material.cpp
+        include/opengl/GLHeader.h
 )
 
 target_include_directories(${PROJECT_NAME}

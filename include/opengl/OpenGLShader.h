@@ -1,6 +1,8 @@
 ﻿#pragma once
-#include "IShader.h"
-#include "glad/glad.h"
+
+#include <IShader.h>
+
+#include "GLHeader.h"
 
 namespace ICCore {
     class OpenGLShader : public IShader {

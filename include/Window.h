@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include <GLFW/glfw3.h>
+#include <opengl/GLHeader.h>
 
 namespace ICCore {
     class Window {
