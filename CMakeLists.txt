@@ -20,6 +20,8 @@ add_library(${PROJECT_NAME} STATIC
         include/Mesh.h
         src/Mesh.cpp
         include/Primitives.h
+        include/Material.h
+        include/IShader.h
 )
 
 target_include_directories(${PROJECT_NAME}
