@@ -1,21 +1,15 @@
 #pragma once
+#include "IShader.h"
 
 namespace ICCore {
-    enum MaterialPropertyType {
-        Texture,
-        Float,
-        Vec2,
-        Vec3,
-        Vec4
-    };
-
-    struct MaterialProperty {
-        MaterialPropertyType propertyType;
-    };
-
     class Material {
     public:
-        Material();
+        Material(IShader &shader);
         ~Material() = default;
+
+        IShader &GetShader() const { return _shader; }
+
+    private:
+        IShader &_shader;
     };
 } // namespace ICCore

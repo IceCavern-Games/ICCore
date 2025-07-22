@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
+add_subdirectory(external/glad)
 
 add_library(${PROJECT_NAME} STATIC
         src/image.cpp
@@ -22,6 +23,9 @@ add_library(${PROJECT_NAME} STATIC
         include/Primitives.h
         include/Material.h
         include/IShader.h
+        include/opengl/OpenGLShader.h
+        src/opengl/OpenGLShader.cpp
+        src/Material.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -37,7 +41,10 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE STB_IMAGE_IMPLEMENTATION)
 target_link_libraries(${PROJECT_NAME}
         PUBLIC glfw
         spdlog::spdlog_header_only
+        glad
 )
+
+install(TARGETS glad EXPORT ICCoreTargets)
 
 # Export library
 install(TARGETS ICCore EXPORT ICCoreTargets
